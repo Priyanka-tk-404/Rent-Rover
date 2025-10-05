@@ -1,0 +1,58 @@
+﻿@model carrental1.Models.customer
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>customer</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.custname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.custname)
+                @Html.ValidationMessageFor(model => model.custname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.address)
+                @Html.ValidationMessageFor(model => model.address)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.mobile, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mobile)
+                @Html.ValidationMessageFor(model => model.mobile)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
